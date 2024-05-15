@@ -4,11 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRM Maturity Level Assessment</title>
+    <title>CRM Maturity Level Assessment - Just a Little Data</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="512x512"
+        href="./img/favicon-32x32-1.png" />
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+            font-family: "K2D", sans-serif;
+            margin: 0;
+            width: 100%;
         }
 
         .question {
@@ -20,105 +25,178 @@
             margin-bottom: 5px;
         }
 
+        section {
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
         button {
             padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
+            background-color: #FFFFFF;
+            border: 2px solid rgb(47, 235, 163);
             cursor: pointer;
+            color: #1f1f1f;
         }
 
         button:hover {
-            background-color: #45a049;
+            background-color: rgb(47, 235, 163);
+            border: 2px solid rgb(47, 235, 163);
+            color: white;
+        }
+
+        header { 
+            background-color: rgb(47, 235, 163);
+            margin: 0;
+            padding: 10px 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .dropbox {
+            padding: 4px 0;
+            box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.10);
+            border-radius: 10px;
+        }
+
+        @media all and (max-width:576px){
+            section {
+                width: 90%;
+                margin-top: 3rem;
+            }
+
+            .box-text {
+                padding: 7px 9px !important;
+                min-width: 250px;
+            }
+            
+            .dropbox {
+                width: 200px;
+            }
+        }
+
+        @media all and (min-width:577px){
+            section {
+                width: 85%;
+                margin-top: 3rem;
+            }
+
+            .box-text {
+                padding: 7px 9px !important;
+                min-width: 300px;
+            }
+
+            .dropbox {
+                width: 450px;
+            }
+        }
+
+        @media all and (min-width:700px) {
+            section {
+                width: fit-content;
+                margin-top: 40px;
+            }
+
+            .box-text {
+                padding: 7px 9px !important;
+                min-width: 380px;
+            }
+
+            .dropbox {
+                width: 500px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <h1>CRM Maturity Level Assessment</h1>
-    <form id="crm-form" onsubmit="calculateMaturityLevel(event)">
-        <div class="question">
-            <label>1. Como você descreveria o atual sistema de CRM da sua empresa?</label>
-            <select name="Características Atuais da Empresa" required>
-                <option value="A">A) Não possuímos um sistema de CRM; usamos sistemas manuais como Excel.</option>
-                <option value="B">B) Gerenciamos campanhas ad-hoc com algum uso de automação para jornadas específicas
-                    de clientes.</option>
-                <option value="C">C) Nosso CRM integra múltiplos canais de comunicação e possui algum nível de automação
-                    na gestão de ofertas.</option>
-                <option value="D">D) Utilizamos uma plataforma de dados unificada com automação avançada e
-                    personalização em tempo real.</option>
-            </select>
-        </div>
-        <div class="question">
-            <label>2. Como é a infraestrutura de tecnologia da sua empresa em relação ao CRM?</label>
-            <select name="Parque Tecnológico" required>
-                <option value="A">A) Dependemos de sistemas manuais e planilhas.</option>
-                <option value="B">B) Temos automação básica para campanhas e jornadas de clientes.</option>
-                <option value="C">C) Integramos funcionalidades de CRM em vários canais de comunicação digital.</option>
-                <option value="D">D) Implementamos tecnologias emergentes como AI, Realidade Aumentada e Web 3.0 no
-                    nosso CRM.</option>
-            </select>
-        </div>
-        <div class="question">
-            <label>3. Quais fontes de dados sua empresa utiliza para CRM?</label>
-            <select name="Fontes de Dados" required>
-                <option value="A">A) Dados básicos isolados em sistemas manuais ou planilhas.</option>
-                <option value="B">B) Dados demográficos e comportamentais básicos durante campanhas.</option>
-                <option value="C">C) Dados comportamentais ricos de múltiplos canais digitais.</option>
-                <option value="D">D) Dados de IoT e programas de fidelidade integrados para análise avançada.</option>
-            </select>
-        </div>
-        <div class="question">
-            <label>4. Como sua empresa gerencia a comunicação multicanal?</label>
-            <select name="Canais de Comunicação Integrados" required>
-                <option value="A">A) Não integramos canais; as comunicações são feitas isoladamente.</option>
-                <option value="B">B) Começamos a integrar alguns canais digitais básicos.</option>
-                <option value="C">C) Integração eficaz de múltiplos canais digitais e análise de comportamento.</option>
-                <option value="D">D) Otimização contínua e personalização de comunicação em todos os canais integrados.
-                </option>
-            </select>
-        </div>
-        <div class="question">
-            <label>5. Qual o nível de detalhamento dos dados que sua empresa possui sobre os clientes?</label>
-            <select name="Níveis de Dados sobre os Clientes" required>
-                <option value="A">A) Informações básicas como nome e contato.</option>
-                <option value="B">B) Incluímos dados demográficos e comportamentais básicos.</option>
-                <option value="C">C) Dados detalhados de comportamento em diferentes plataformas.</option>
-                <option value="D">D) Análises preditivas e personalizadas baseadas em dados ricos e integrados.</option>
-            </select>
-        </div>
-        <div class="question">
-            <label>6. Como sua empresa personaliza a comunicação com os clientes?</label>
-            <select name="Personalização da Comunicação" required>
-                <option value="A">A) Não personalizamos; comunicamos de forma geral e uniforme.</option>
-                <option value="B">B) Segmentação básica baseada em características demográficas.</option>
-                <option value="C">C) Personalização avançada com base no comportamento multicanal.</option>
-                <option value="D">D) Personalização em tempo real com uso de IA e análise preditiva.</option>
-            </select>
-        </div>
-        <div class="question">
-            <label>7. Como as análises de dados orientam a estratégia de CRM da sua empresa?</label>
-            <select name="Informações Oriundas de Análise que Orientam a Estratégia de CRM" required>
-                <option value="A">A) Usamos análises básicas e manuais como NPS.</option>
-                <option value="B">B) Realizamos análises para otimizar campanhas e segmentações.</option>
-                <option value="C">C) Usamos análises preditivas para otimizar a jornada do cliente e a comunicação.
-                </option>
-                <option value="D">D) Empregamos modelos avançados de ciência de dados para antecipar necessidades e
-                    comportamentos.</option>
-            </select>
-        </div>
-        <div class="question">
-            <label>8. Como sua empresa utiliza estudos de mercado e análises competitivas?</label>
-            <select name="Estudos" required>
-                <option value="A">A) Não realizamos estudos formais.</option>
-                <option value="B">B) Realizamos estudos ocasionais para entender melhor nossos clientes.</option>
-                <option value="C">C) Integramos estudos com dados de CRM para melhorar as estratégias.</option>
-                <option value="D">D) Utilizamos estudos avançados e dados externos para antecipar tendências e adaptar
-                    estratégias.</option>
-            </select>
-        </div>
-        <button type="submit">Enviar</button>
-    </form>
+    <header>
+        <h1>CRM Maturity Level Assessment</h1>
+    </header>
+    <section>
+        <form id="crm-form" onsubmit="calculateMaturityLevel(event)">
+            <div class="question">
+                <label>1. Como você descreveria o atual sistema de CRM da sua empresa?</label>
+                <select name="Características Atuais da Empresa" required class="dropbox">
+                    <option value="A">A) Não possuímos um sistema de CRM; usamos sistemas manuais como Excel.</option>
+                    <option value="B">B) Gerenciamos campanhas ad-hoc com algum uso de automação para jornadas específicas
+                        de clientes.</option>
+                    <option value="C">C) Nosso CRM integra múltiplos canais de comunicação e possui algum nível de automação
+                        na gestão de ofertas.</option>
+                    <option value="D">D) Utilizamos uma plataforma de dados unificada com automação avançada e
+                        personalização em tempo real.</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>2. Como é a infraestrutura de tecnologia da sua empresa em relação ao CRM?</label>
+                <select name="Parque Tecnológico" required class="dropbox">
+                    <option value="A">A) Dependemos de sistemas manuais e planilhas.</option>
+                    <option value="B">B) Temos automação básica para campanhas e jornadas de clientes.</option>
+                    <option value="C">C) Integramos funcionalidades de CRM em vários canais de comunicação digital.</option>
+                    <option value="D">D) Implementamos tecnologias emergentes como AI, Realidade Aumentada e Web 3.0 no
+                        nosso CRM.</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>3. Quais fontes de dados sua empresa utiliza para CRM?</label>
+                <select name="Fontes de Dados" required class="dropbox">
+                    <option value="A">A) Dados básicos isolados em sistemas manuais ou planilhas.</option>
+                    <option value="B">B) Dados demográficos e comportamentais básicos durante campanhas.</option>
+                    <option value="C">C) Dados comportamentais ricos de múltiplos canais digitais.</option>
+                    <option value="D">D) Dados de IoT e programas de fidelidade integrados para análise avançada.</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>4. Como sua empresa gerencia a comunicação multicanal?</label>
+                <select name="Canais de Comunicação Integrados" required class="dropbox">
+                    <option value="A">A) Não integramos canais; as comunicações são feitas isoladamente.</option>
+                    <option value="B">B) Começamos a integrar alguns canais digitais básicos.</option>
+                    <option value="C">C) Integração eficaz de múltiplos canais digitais e análise de comportamento.</option>
+                    <option value="D">D) Otimização contínua e personalização de comunicação em todos os canais integrados.
+                    </option>
+                </select>
+            </div>
+            <div class="question">
+                <label>5. Qual o nível de detalhamento dos dados que sua empresa possui sobre os clientes?</label>
+                <select name="Níveis de Dados sobre os Clientes" required class="dropbox">
+                    <option value="A">A) Informações básicas como nome e contato.</option>
+                    <option value="B">B) Incluímos dados demográficos e comportamentais básicos.</option>
+                    <option value="C">C) Dados detalhados de comportamento em diferentes plataformas.</option>
+                    <option value="D">D) Análises preditivas e personalizadas baseadas em dados ricos e integrados.</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>6. Como sua empresa personaliza a comunicação com os clientes?</label>
+                <select name="Personalização da Comunicação" required class="dropbox">
+                    <option value="A">A) Não personalizamos; comunicamos de forma geral e uniforme.</option>
+                    <option value="B">B) Segmentação básica baseada em características demográficas.</option>
+                    <option value="C">C) Personalização avançada com base no comportamento multicanal.</option>
+                    <option value="D">D) Personalização em tempo real com uso de IA e análise preditiva.</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>7. Como as análises de dados orientam a estratégia de CRM da sua empresa?</label>
+                <select name="Informações Oriundas de Análise que Orientam a Estratégia de CRM" required class="dropbox">
+                    <option value="A">A) Usamos análises básicas e manuais como NPS.</option>
+                    <option value="B">B) Realizamos análises para otimizar campanhas e segmentações.</option>
+                    <option value="C">C) Usamos análises preditivas para otimizar a jornada do cliente e a comunicação.
+                    </option>
+                    <option value="D">D) Empregamos modelos avançados de ciência de dados para antecipar necessidades e
+                        comportamentos.</option>
+                </select>
+            </div>
+            <div class="question">
+                <label>8. Como sua empresa utiliza estudos de mercado e análises competitivas?</label>
+                <select name="Estudos" required class="dropbox">
+                    <option value="A">A) Não realizamos estudos formais.</option>
+                    <option value="B">B) Realizamos estudos ocasionais para entender melhor nossos clientes.</option>
+                    <option value="C">C) Integramos estudos com dados de CRM para melhorar as estratégias.</option>
+                    <option value="D">D) Utilizamos estudos avançados e dados externos para antecipar tendências e adaptar
+                        estratégias.</option>
+                </select>
+            </div>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
 
     <script>
         function calculateMaturityLevel(event) {

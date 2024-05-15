@@ -4,11 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRM Maturity Level Assessment</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+
+    <title>CRM Maturity Level Assessment - Just a Little Data</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="512x512"
+        href="./img/favicon-32x32-1.png" />
+        
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+            font-family: "K2D", sans-serif;
+            margin: 0;
+            width: 100%;
+        }
+
+        section {
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        header { 
+            background-color: rgb(47, 235, 163);
+            margin: 0;
+            padding: 10px 0;
+            text-align: center;
+            width: 100%;
         }
 
         .question {
@@ -20,55 +43,124 @@
             margin-bottom: 5px;
         }
 
+        .box-text {
+            background-color: #ffffff;
+            color: #1f1f1f;
+            border: 1px solid #ABABAB;
+            border-radius: 4px;
+            text-align: left;
+            align-items: left;
+            box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.10);
+            font-size: 14px;
+            box-sizing: border-box;
+            min-height: 20px;
+        }
+
         button {
             padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
+            background-color: #FFFFFF;
+            border: 2px solid rgb(47, 235, 163);
             cursor: pointer;
+            color: #1f1f1f;
         }
 
         button:hover {
-            background-color: #45a049;
+            background-color: rgb(47, 235, 163);
+            border: 2px solid rgb(47, 235, 163);
+            color: white;
+        }
+
+        @media all and (max-width:576px){
+            section {
+                width: 90%;
+            }
+
+            .box-text {
+                padding: 7px 9px !important;
+                min-width: 250px;
+            }
+        }
+
+        @media all and (min-width:577px){
+            section {
+                width: 85%;
+            }
+
+            .box-text {
+                padding: 7px 9px !important;
+                min-width: 300px;
+            }
+        }
+
+        @media all and (min-width:700px) {
+            section {
+                width: 50%;
+                margin-top: 40px;
+            }
+
+            .box-text {
+                padding: 7px 9px !important;
+                min-width: 380px;
+            }
+        }
+
+        @media all and (min-width:992px){
+
+        }
+
+        @media all and (min-width:1200px) {
+        }
+
+        @media all and (min-width:1400px) {
+        }
+
+        @media all and (min-width:1600px) {
+        }
+
+        @media all and (min-width:1920px) {
         }
     </style>
 </head>
 
 <body>
-    <h1>CRM Maturity Level Assessment</h1>
-    <p>
-        A matriz de maturidade de CRM apresenta um guia essencial para empresas que buscam aprimorar suas relações com
-        as pessoas baseado em estratégias orientadas por dados.
-        À medida que as organizações avançam pelos diferentes níveis, elas desbloqueiam novas capacidades analíticas,
-        processos automatizados e insights aprofundados sobre o comportamento e preferências da pessoa.
-        Este guia estruturado facilita a identificação de onde a empresa está em sua jornada e o que é necessário para
-        alcançar o próximo nível de engajamento e eficácia no CRM.
-    </p>
-    <p>A seguir, vamos avaliar sua empresa em 8 perguntas divididas em 4 dimensões: tecnologia, dados, personalização e
-        análise.</p>
-    <form id="lead-form" onsubmit="saveLeadData(event)">
-        <div class="question">
-            <label>Nome Completo</label>
-            <input type="text" name="nome_completo" required>
-        </div>
-        <div class="question">
-            <label>Email Corporativo</label>
-            <input type="email" name="email_corporativo" required>
-        </div>
-        <div class="question">
-            <label>Celular com DDD</label>
-            <input type="text" name="celular" required>
-        </div>
-        <div class="question">
-            <label>Cargo que Ocupa na Empresa Atual</label>
-            <input type="text" name="cargo" required>
-        </div>
-        <div class="question">
-            <label>Nome da Empresa</label>
-            <input type="text" name="nome_empresa" required>
-        </div>
-        <button type="submit">Continuar</button>
-    </form>
+    <header>
+        <h1>CRM Maturity Level Assessment</h1>
+    </header>
+    <section>
+        <p style="text-align: justify;">
+            A matriz de maturidade de CRM apresenta um guia essencial para empresas que buscam aprimorar suas relações com
+            as pessoas baseado em estratégias orientadas por dados.
+            À medida que as organizações avançam pelos diferentes níveis, elas desbloqueiam novas capacidades analíticas,
+            processos automatizados e insights aprofundados sobre o comportamento e preferências da pessoa.
+            Este guia estruturado facilita a identificação de onde a empresa está em sua jornada e o que é necessário para
+            alcançar o próximo nível de engajamento e eficácia no CRM.
+        </p>
+        <p>A seguir, vamos avaliar sua empresa em 8 perguntas divididas em 4 dimensões: tecnologia, dados, personalização e
+            análise.</p>
+        <form id="lead-form" onsubmit="saveLeadData(event)">
+            <div class="question">
+                <label>Nome Completo</label>
+                <input type="text" name="nome_completo" required class="box-text">
+            </div>
+            <div class="question">
+                <label>Email Corporativo</label>
+                <input type="email" name="email_corporativo" required class="box-text">
+            </div>
+            <div class="question">
+                <label>Celular com DDD</label>
+                <input type="text" name="celular" required class="box-text">
+            </div>
+            <div class="question">
+                <label>Cargo que Ocupa na Empresa Atual</label>
+                <input type="text" name="cargo" required class="box-text">
+            </div>
+            <div class="question">
+                <label>Nome da Empresa</label>
+                <input type="text" name="nome_empresa" required class="box-text">
+            </div>
+            <button type="submit">Continuar</button>
+        </form>
+    </section>
     <script>
         function saveLeadData(event) {
             event.preventDefault();
