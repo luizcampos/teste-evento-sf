@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM Maturity Level Assessment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .question label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CRM Maturity Level Assessment</h1>
+    <form id="crm-form" onsubmit="calculateMaturityLevel(event)">
+        <div class="question">
+            <label>1. Como você descreveria o atual sistema de CRM da sua empresa?</label>
+            <select name="Características Atuais da Empresa" required>
+                <option value="A">A) Não possuímos um sistema de CRM; usamos sistemas manuais como Excel.</option>
+                <option value="B">B) Gerenciamos campanhas ad-hoc com algum uso de automação para jornadas específicas
+                    de clientes.</option>
+                <option value="C">C) Nosso CRM integra múltiplos canais de comunicação e possui algum nível de automação
+                    na gestão de ofertas.</option>
+                <option value="D">D) Utilizamos uma plataforma de dados unificada com automação avançada e
+                    personalização em tempo real.</option>
+            </select>
+        </div>
+        <div class="question">
+            <label>2. Como é a infraestrutura de tecnologia da sua empresa em relação ao CRM?</label>
+            <select name="Parque Tecnológico" required>
+                <option value="A">A) Dependemos de sistemas manuais e planilhas.</option>
+                <option value="B">B) Temos automação básica para campanhas e jornadas de clientes.</option>
+                <option value="C">C) Integramos funcionalidades de CRM em vários canais de comunicação digital.</option>
+                <option value="D">D) Implementamos tecnologias emergentes como AI, Realidade Aumentada e Web 3.0 no
+                    nosso CRM.</option>
+            </select>
+        </div>
+        <div class="question">
+            <label>3. Quais fontes de dados sua empresa utiliza para CRM?</label>
+            <select name="Fontes de Dados" required>
+                <option value="A">A) Dados básicos isolados em sistemas manuais ou planilhas.</option>
+                <option value="B">B) Dados demográficos e comportamentais básicos durante campanhas.</option>
+                <option value="C">C) Dados comportamentais ricos de múltiplos canais digitais.</option>
+                <option value="D">D) Dados de IoT e programas de fidelidade integrados para análise avançada.</option>
+            </select>
+        </div>
+        <div class="question">
+            <label>4. Como sua empresa gerencia a comunicação multicanal?</label>
+            <select name="Canais de Comunicação Integrados" required>
+                <option value="A">A) Não integramos canais; as comunicações são feitas isoladamente.</option>
+                <option value="B">B) Começamos a integrar alguns canais digitais básicos.</option>
+                <option value="C">C) Integração eficaz de múltiplos canais digitais e análise de comportamento.</option>
+                <option value="D">D) Otimização contínua e personalização de comunicação em todos os canais integrados.
+                </option>
+            </select>
+        </div>
+        <div class="question">
+            <label>5. Qual o nível de detalhamento dos dados que sua empresa possui sobre os clientes?</label>
+            <select name="Níveis de Dados sobre os Clientes" required>
+                <option value="A">A) Informações básicas como nome e contato.</option>
+                <option value="B">B) Incluímos dados demográficos e comportamentais básicos.</option>
+                <option value="C">C) Dados detalhados de comportamento em diferentes plataformas.</option>
+                <option value="D">D) Análises preditivas e personalizadas baseadas em dados ricos e integrados.</option>
+            </select>
+        </div>
+        <div class="question">
+            <label>6. Como sua empresa personaliza a comunicação com os clientes?</label>
+            <select name="Personalização da Comunicação" required>
+                <option value="A">A) Não personalizamos; comunicamos de forma geral e uniforme.</option>
+                <option value="B">B) Segmentação básica baseada em características demográficas.</option>
+                <option value="C">C) Personalização avançada com base no comportamento multicanal.</option>
+                <option value="D">D) Personalização em tempo real com uso de IA e análise preditiva.</option>
+            </select>
+        </div>
+        <div class="question">
+            <label>7. Como as análises de dados orientam a estratégia de CRM da sua empresa?</label>
+            <select name="Informações Oriundas de Análise que Orientam a Estratégia de CRM" required>
+                <option value="A">A) Usamos análises básicas e manuais como NPS.</option>
+                <option value="B">B) Realizamos análises para otimizar campanhas e segmentações.</option>
+                <option value="C">C) Usamos análises preditivas para otimizar a jornada do cliente e a comunicação.
+                </option>
+                <option value="D">D) Empregamos modelos avançados de ciência de dados para antecipar necessidades e
+                    comportamentos.</option>
+            </select>
+        </div>
+        <div class="question">
+            <label>8. Como sua empresa utiliza estudos de mercado e análises competitivas?</label>
+            <select name="Estudos" required>
+                <option value="A">A) Não realizamos estudos formais.</option>
+                <option value="B">B) Realizamos estudos ocasionais para entender melhor nossos clientes.</option>
+                <option value="C">C) Integramos estudos com dados de CRM para melhorar as estratégias.</option>
+                <option value="D">D) Utilizamos estudos avançados e dados externos para antecipar tendências e adaptar
+                    estratégias.</option>
+            </select>
+        </div>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+        function calculateMaturityLevel(event) {
+            event.preventDefault();
+            const points = { 'A': 1, 'B': 2, 'C': 3, 'D': 4 };
+            const dimensions = {
+                'Tecnologia': ['Parque Tecnológico'],
+                'Dados': ['Fontes de Dados', 'Níveis de Dados sobre os Clientes'],
+                'Personalização': ['Personalização da Comunicação', 'Características Atuais da Empresa', 'Canais de Comunicação Integrados'],
+                'Análise': ['Informações Oriundas de Análise que Orientam a Estratégia de CRM', 'Estudos']
+            };
+            const dimensionScores = { 'Tecnologia': 0, 'Dados': 0, 'Personalização': 0, 'Análise': 0 };
+            const dimensionCounts = { 'Tecnologia': 1, 'Dados': 2, 'Personalização': 3, 'Análise': 2 };
+
+            const form = document.getElementById('crm-form');
+            const formData = new FormData(form);
+
+            for (let [key, value] of formData.entries()) {
+                for (let dimension in dimensions) {
+                    if (dimensions[dimension].includes(key)) {
+                        dimensionScores[dimension] += points[value];
+                    }
+                }
+            }
+
+            for (let dimension in dimensionScores) {
+                dimensionScores[dimension] /= dimensionCounts[dimension];
+            }
+
+            const finalScore = (dimensionScores['Tecnologia'] + dimensionScores['Dados'] + dimensionScores['Personalização'] + dimensionScores['Análise']) / 4;
+            let maturityLevel = '';
+
+            if (finalScore >= 1.0 && finalScore <= 1.75) {
+                maturityLevel = 'Nível 1: Base Fundamental / Estágio de Infraestrutura';
+            } else if (finalScore >= 1.76 && finalScore <= 2.5) {
+                maturityLevel = 'Nível 2: Campanhas Direcionadas / Estágio de Campanhas e Jornadas Automatizadas';
+            } else if (finalScore >= 2.51 && finalScore <= 3.25) {
+                maturityLevel = 'Nível 3: Núcleo de Automação / Estágio de Eficiência e Alinhamento com multicanalidade';
+            } else if (finalScore >= 3.26 && finalScore <= 4.0) {
+                maturityLevel = 'Nível 4: Zona de Otimização / Estágio de Performance e Personalização';
+            }
+
+            const leadData = localStorage.getItem('leadData');
+            const formDataStr = new URLSearchParams(formData).toString();
+            const params = `${leadData}&${formDataStr}&nivel=${encodeURIComponent(maturityLevel)}`;
+            //console.log(params)
+            //alert(params);
+            // var data = {
+            //     "Nome": "João",
+            //     "Email": "joao@example.com"
+            // };
+
+            
+            // Função para separar os valores e armazená-los em um objeto
+            function extrairValores(params) {
+                var valores = {};
+                var partes = params.split("&");
+
+                partes.forEach(function (parte) {
+                    var chaveValor = parte.split("=");
+                    var chave = decodeURIComponent(chaveValor[0]);
+                    var valor = decodeURIComponent(chaveValor[1].replace(/\+/g, " "));
+                    valores[chave] = valor;
+                });
+                return valores;
+            }
+
+            var objetoValores = extrairValores(params);
+            //console.log(objetoValores)
+
+
+            const url = 'https://corsproxy.io/?' + encodeURIComponent('https://script.google.com/macros/s/AKfycbwfS9ZN38OBJrNUjBorzUhYmviA5X-gTe_wr8_UX5iKDkHtSumRsPsS4gbSD-Xum34SXQ/exec');
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: JSON.stringify(objetoValores),
+            }).then(response => {
+                return response.text();
+            }).then(data => {
+                var url = "file:///D:/Cliente/Desktop/JUST/E-MAIL/TesteDea/teste-Dea-3.html";
+                window.location.href = `${url}?level=${encodeURIComponent(maturityLevel)}`;
+            }).catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+
+</html>

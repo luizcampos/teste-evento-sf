@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM Maturity Level Assessment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .result {
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Resultado da Avaliação de Maturidade CRM</h1>
+    <div class="result">
+        <h2 id="maturity-level"></h2>
+        <p>Gostaria de saber mais sobre este nível e por que sua empresa se enquadra nele? Também forneceremos dicas de
+            onde focar para ser mais eficiente operacionalmente e mais estratégica usando dados.</p>
+    </div>
+    <button onclick="handleFeedback('yes')">SIM</button>
+    <button onclick="handleFeedback('no')">NÃO</button>
+
+    <script>
+        function getMaturityLevel() {
+            const params = new URLSearchParams(window.location.search);
+            const level = params.get('level');
+            document.getElementById('maturity-level').innerText = `Nível de Maturidade da Empresa: ${level}`;
+        }
+
+        function handleFeedback(response) {
+            if (response === 'yes') {
+                alert('Obrigado! Vamos entrar em contato para fornecer mais informações.');
+            } else {
+                alert('Obrigado pelo seu tempo!');
+            }
+        }
+
+        getMaturityLevel();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM Maturity Level Assessment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .question label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CRM Maturity Level Assessment</h1>
+    <p>
+        A matriz de maturidade de CRM apresenta um guia essencial para empresas que buscam aprimorar suas relações com
+        as pessoas baseado em estratégias orientadas por dados.
+        À medida que as organizações avançam pelos diferentes níveis, elas desbloqueiam novas capacidades analíticas,
+        processos automatizados e insights aprofundados sobre o comportamento e preferências da pessoa.
+        Este guia estruturado facilita a identificação de onde a empresa está em sua jornada e o que é necessário para
+        alcançar o próximo nível de engajamento e eficácia no CRM.
+    </p>
+    <p>A seguir, vamos avaliar sua empresa em 8 perguntas divididas em 4 dimensões: tecnologia, dados, personalização e
+        análise.</p>
+    <form id="lead-form" onsubmit="saveLeadData(event)">
+        <div class="question">
+            <label>Nome Completo</label>
+            <input type="text" name="nome_completo" required>
+        </div>
+        <div class="question">
+            <label>Email Corporativo</label>
+            <input type="email" name="email_corporativo" required>
+        </div>
+        <div class="question">
+            <label>Celular com DDD</label>
+            <input type="text" name="celular" required>
+        </div>
+        <div class="question">
+            <label>Cargo que Ocupa na Empresa Atual</label>
+            <input type="text" name="cargo" required>
+        </div>
+        <div class="question">
+            <label>Nome da Empresa</label>
+            <input type="text" name="nome_empresa" required>
+        </div>
+        <button type="submit">Continuar</button>
+    </form>
+    <script>
+        function saveLeadData(event) {
+            event.preventDefault();
+            const form = document.getElementById('lead-form');
+            const formData = new FormData(form);
+            const params = new URLSearchParams(formData).toString();
+            localStorage.setItem('leadData', params);
+
+            var url = "file:///D:/Cliente/Desktop/JUST/E-MAIL/TesteDea/teste-Dea-2.html";
+            window.location.href = url;
+        }
+    </script>
+</body>
+
+</html>
