@@ -201,7 +201,7 @@
             }).then(response => {
                 return response.text();
             }).then(data => {
-                var url = "file:///D:/Cliente/Desktop/JUST/E-MAIL/TesteDea/teste-Dea-3.html";
+                var url = "./teste-Dea-3.html";
                 window.location.href = `${url}?level=${encodeURIComponent(maturityLevel)}`;
             }).catch(error => {
                 console.error('Error:', error);
